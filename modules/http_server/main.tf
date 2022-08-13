@@ -48,12 +48,3 @@ resource "google_service_account" "sa" {
   display_name = "A service account intended for Rajesh's team to create other service-accounts"
 }
 
-resource "google_service_account_iam_binding" "admin-account-iam" {
-  service_account_id = google_service_account.sa.name
-  role               = "roles/iam.serviceAccountKeyAdmin"
-
-  members = [
-    "user:tf-service-account@wffs-poc.iam.gserviceaccount.com",
-  ]
-}
-
